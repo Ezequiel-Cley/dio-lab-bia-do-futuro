@@ -5,7 +5,7 @@
 ### Problema
 > Qual problema financeiro seu agente resolve?
 
-Ajuda em finanças pessoais, avaliando seu perfil, sugerido investimentos, e formas de gestão financeira.
+Ajuda em finanças pessoais, avaliando seu perfil, sugerido investimentos, e formas de gestão financeira, com total objetividade na economia financeira e investimentos.
 
 ### Solução
 > Como o agente resolve esse problema de forma proativa?
