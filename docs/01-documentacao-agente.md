@@ -5,17 +5,17 @@
 ### Problema
 > Qual problema financeiro seu agente resolve?
 
-[Sua descrição aqui]
+Ajuda em finanças pessoais, avaliando seu perfil, sugerido investimentos, e formas de gestão financeira.
 
 ### Solução
 > Como o agente resolve esse problema de forma proativa?
 
-[Sua descrição aqui]
+A ideia é você alimentar com o valor de receita e seu perfil para que o assistente possa avaliar e começar a sugerir ideias e detalhes de como ter sua economia financeira.
 
 ### Público-Alvo
 > Quem vai usar esse agente?
 
-[Sua descrição aqui]
+Literalmente qualquer publico que deseja ajuda com dúvidas em suas proprias finanças pessoais.
 
 ---
 
