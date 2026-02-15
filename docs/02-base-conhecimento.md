@@ -8,8 +8,8 @@ Descreva se usou os arquivos da pasta `data`, por exemplo:
 |---------|---------|---------------------|
 | `historico_atendimento.csv` | CSV | Contextualizar interações anteriores |
 | `perfil_investidor.json` | JSON | Personalizar recomendações |
-| `produtos_financeiros.json` | JSON | Sugerir produtos adequados ao perfil |
-| `transacoes.csv` | CSV | Analisar padrão de gastos do cliente |
+| `produtos_financeiros.json` | JSON | Sugerir investimentos adequados ao perfil |
+| `transacoes.csv` | CSV | Arquivo com o volume de custos mensais de seus clientes |
 
 > [!TIP]
 > **Quer um dataset mais robusto?** Você pode utilizar datasets públicos do [Hugging Face](https://huggingface.co/datasets) relacionados a finanças, desde que sejam adequados ao contexto do desafio.
@@ -20,7 +20,7 @@ Descreva se usou os arquivos da pasta `data`, por exemplo:
 
 > Você modificou ou expandiu os dados mockados? Descreva aqui.
 
-[Sua descrição aqui]
+Sim, fiz algumas modificações para fazer sentido com o objetivo do meu Agente e alimentei com algumas informações também.
 
 ---
 
@@ -29,12 +29,12 @@ Descreva se usou os arquivos da pasta `data`, por exemplo:
 ### Como os dados são carregados?
 > Descreva como seu agente acessa a base de conhecimento.
 
-[ex: Os JSON/CSV são carregados no início da sessão e incluídos no contexto do prompt]
+Os Arquivos em JSON ou CSV são carregados no início da sessão e incluídos no contexto do prompt
 
 ### Como os dados são usados no prompt?
 > Os dados vão no system prompt? São consultados dinamicamente?
 
-[Sua descrição aqui]
+São usados para o agente entender a realidade do cliente, para poder sugerir sugestões financeiras e investimentos de acordo com perfil do cliente.
 
 ---
 
