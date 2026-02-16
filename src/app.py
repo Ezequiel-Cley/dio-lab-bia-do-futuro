@@ -1,17 +1,27 @@
 import json
 import pandas as pd
+import requests
+import streamlit as st
+
+# ------------ CONFIGURAÇÕES ------------
+
+OLLAMA_URL = "http://localhost:11434/api/generate"
+MODELO = 'gpt-oss'
 
 # ------ Carregar dados ------------
-perfil = json.load(open('perfil_investidor.json'))
-transocoes = pd.read_csv('transações.csv')
-histórico = pd_read_csv('historico_atendimento.csv')
-produtos = json.load('produtos_financeiros.json')
+path = r'C:\Users\Cleydenilson\Documents\Scripts\01 - APRENDIZADOS\08_Agentes_IA'
+with open(rf'{path}\perfil_investidor.json', encoding='utf-8') as f:
+    perfil = json.load(f)
+transacoes = pd.read_csv(rf'{path}\transacoes.csv')
+historico = pd.read_csv(rf'{path}\historico_atendimento.csv')
+with open(rf'{path}\produtos_financeiros.json', encoding='utf-8') as f:
+    produtos = json.load(f)
 
 # ------ Montar Contexto ---------
 Contexto = f"""
-CLIENTE: {perfil{'nome'}}, {perfil{'idade'}}, anos, perfil {perfil{'perfil_investidor'}}
-OBJETIVO: {perfil{'objetivo_principal'}}
-PATROMÔNIO: R$ {perfil{'patrimônio_total'}} | RESERVA: R$ {perfil{'reserva_emergencia_atual'}}
+CLIENTE: {perfil['nome']}, {perfil['idade']}, anos, perfil {perfil['perfil_investidor']}
+OBJETIVO: {perfil['objetivo_principal']}
+PATROMÔNIO: R$ {perfil['patrimonio_total']} | RESERVA: R$ {perfil['reserva_emergencia_atual']}
 
 TRANSAÇÕES RECENTES:
 {transacoes.to_string(index=False)}
@@ -37,3 +47,25 @@ REGRAS:
 """
 
 
+# ------------- Chamar Ollama ---------------
+def perguntar(msg):
+    prompt = f"""
+	{SYSTEM_PROMPT}
+
+	CONTEXTO DO CLIENTE:
+	{Contexto}
+
+	Pergunta: ({msg})
+    """
+    
+    config = {"model" : MODELO, "prompt" : prompt, "stream" : False}
+    r = requests.post(OLLAMA_URL, json=config)
+    return r.json()['response']
+
+# ----------- Interface Streamlit -----------
+st.title("CleyCley - Assistente Financeiro IA")
+
+if pergunta := st.chat_input("Sua dúvida sobre finanças..."):
+	st.chat_message("user").write(pergunta)
+	with st.spinner("..."):
+		st.chat_message("assistant").write(perguntar(pergunta))
